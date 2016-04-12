@@ -1,0 +1,16 @@
+@import "toolkit";
+
+.app {
+  font-size: inherit;
+  @include my-padding-mixin(20px);
+}
+
+.left-pane {
+	width: 20%;
+	float: left;
+}
+
+.main-pane {
+	width: 80%;
+	float: left;
+}
