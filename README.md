@@ -55,4 +55,7 @@ f.innerHTML = 'WEEE!'
 f.setAttribute('duration', 12345 )
 document.body.insertBefore( f, document.body.childNodes[ 0 ] )
 ```
+``` 
+npm run build
+```
 *Removing the element relies on the animationend event from the CSS fade animation.
