@@ -5,6 +5,6 @@ import './index.html'
 // import './scss/app.scss'
 
 import FlashClass from './components/Flash/flash'
-if( ! FlashClass.isRegistered('x-flash') ){
-	window.Flash = document.registerElement('x-flash', FlashClass )
+if( ! FlashClass.isRegistered('u-flash') ){
+	window.Flash = document.registerElement('u-flash', FlashClass )
 }

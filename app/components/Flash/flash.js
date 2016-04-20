@@ -26,7 +26,7 @@ class FlashClass extends BaseElement {
 
 		this.template = this.buildTemplate( tpl_vars )
 
-        this.setAttribute('x-flash-id', this._id )
+        this.setAttribute('u-flash-id', this._id )
 
     	this.innerHTML = this.template
     }
@@ -34,7 +34,7 @@ class FlashClass extends BaseElement {
     fadeAndRemove(){
         PrefixedEvent( this, 'AnimationEnd', evt => {
             console.dir( evt.animationName )
-            let r = document.querySelector('[x-flash-id="'+this._id+'"]'),
+            let r = document.querySelector('[u-flash-id="'+this._id+'"]'),
                 p = r.parentElement
             p.removeChild( r )
         })

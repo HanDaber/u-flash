@@ -1,8 +1,8 @@
-x-flash *, x-flash *:before, x-flash *:after {
+u-flash *, u-flash *:before, u-flash *:after {
 	box-sizing: border-box;
 }
 
-x-flash {
+u-flash {
 	display: block;
 	opacity: inherit;
 	font-size: inherit;
@@ -10,14 +10,14 @@ x-flash {
 	color: #000;
 	padding: 0.5em;
 }
-x-flash[warning] {
+u-flash[warning] {
 	background-color: orange;
 }
-x-flash[error] {
+u-flash[error] {
 	background-color: red;
 }
 
-x-flash.enable {
+u-flash.enable {
 	-webkit-animation: flash 1.25s ease-out;
 	-moz-animation: flash 1.25s ease-out;
 	-ms-animation: flash 1.25s ease-out;
