@@ -8,3 +8,4 @@ import FlashClass from './components/Flash/flash'
 if( ! FlashClass.isRegistered('u-flash') ){
 	window.Flash = document.registerElement('u-flash', FlashClass )
 }
+

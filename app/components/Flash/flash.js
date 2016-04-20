@@ -1,5 +1,6 @@
 import BaseElement from '../Base/base'
 import getTemplate from './flash.jade'
+import uuid from 'uuid'
  
 class FlashClass extends BaseElement {
 
@@ -8,10 +9,7 @@ class FlashClass extends BaseElement {
 	constructor(){ super() }
 
     attachedCallback(){
-        this._id = (() => {
-            let n = ( new Date() ).getTime()
-            return 2*n // for retreival
-        })()
+        this._id = uuid.v4()
 
     	this.render()
 
