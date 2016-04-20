@@ -2,7 +2,7 @@
 #### Custom element that shows a message and then removes itself after a duration.
 
 ### Example:
-##### Include the JS (6KB) gzipped
+##### Include the JS (6KB gzipped)
 ```html 
 <script src="http://d359icslfg5ozq.cloudfront.net"></script>
 ```
