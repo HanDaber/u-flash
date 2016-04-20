@@ -4,7 +4,7 @@
 ### Example:
 ##### 1) Include the JS (6KB gzipped)
 ```html 
-<script src="http://d359icslfg5ozq.cloudfront.net"></script>
+<script src="http://d15t9wleeczyh6.cloudfront.net"></script>
 ```
 
 ##### 2) Use the Element
