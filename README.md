@@ -17,7 +17,9 @@ document.body.insertBefore( f, document.body.childNodes[ 0 ] )
 
 ##### 3) (Optional) Hack it? (that's what I did!)
 node: 
-```npm run dev```
+```
+npm run dev
+```
 ```javascript
 import FlashClass from './components/Flash/flash'
 // Define 'er
@@ -40,7 +42,9 @@ if( ! MyFlash.isRegistered('i-flash') ){
 }
 ```
 browser:
-```http://localhost:8000```
+``` 
+http://localhost:8000
+```
 ```javascript
 // Use 'er
 var f = document.createElement('i-flash')
