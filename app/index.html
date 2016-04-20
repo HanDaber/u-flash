@@ -18,6 +18,14 @@
 	<% } else { %>
 	<div style="height:1em; background-color:#000; color:#FFF;">Dev <%= title %> (<%= version %>/<%= process.env.APP_HASH %>)</div>
 	<% } %>
+	<style type="text/css">
+		pre {
+			display: block;
+			float: left;
+			margin: 2em;
+			max-width: 500px;
+		}
+	</style>
 </head>
 <body>
 	<h2><%= title %></h2>
