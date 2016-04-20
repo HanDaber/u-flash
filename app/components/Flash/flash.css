@@ -1,8 +1,14 @@
-u-flash *, u-flash *:before, u-flash *:after {
+u-flash *,
+.u-flash *, 
+u-flash *:before, 
+.u-flash *:before, 
+u-flash *:after,
+.u-flash *:after {
 	box-sizing: border-box;
 }
 
-u-flash {
+u-flash,
+.u-flash {
 	display: block;
 	opacity: inherit;
 	font-size: inherit;
@@ -10,14 +16,17 @@ u-flash {
 	color: #000;
 	padding: 0.5em;
 }
-u-flash[warning] {
+u-flash[warning],
+.u-flash[warning] {
 	background-color: orange;
 }
-u-flash[error] {
+u-flash[error],
+.u-flash[error] {
 	background-color: red;
 }
 
-u-flash.enable {
+u-flash.enable,
+.u-flash.enable {
 	-webkit-animation: flash 1s ease-out;
 	-moz-animation: flash 1s ease-out;
 	-ms-animation: flash 1s ease-out;

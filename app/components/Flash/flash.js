@@ -13,6 +13,9 @@ class FlashClass extends BaseElement {
 
     	this.render()
 
+        this.setAttribute('u-flash-id', this._id )
+        this.classList.add('u-flash')
+
 		this.onclick = evt => {
 			this.fadeAndRemove()
 			evt.stopPropagation()
@@ -26,8 +29,6 @@ class FlashClass extends BaseElement {
 		let tpl_vars = { body: this.innerHTML }
 
 		this.template = this.buildTemplate( tpl_vars )
-
-        this.setAttribute('u-flash-id', this._id )
 
     	this.innerHTML = this.template
     }
