@@ -1,5 +1,6 @@
 # u-flash
-## Custom 'Flash' message element. 
+### Custom 'Flash/Warning/Error' element that removes itself after a duration.
+
 ```html 
 <script src="js/app.<%= version %>.js"></script>
 ```
@@ -10,7 +11,13 @@ s.type = 'text/javascript'
 s.src = 'js/app.<%= version %>.js'
 b.appendChild( s )
 ```
+or
+```javascript
+```
 and then 
+```html
+<u-flash [duration="1000"] [warning||error]>Message!</u-flash>
+```
 ```javascript
 var frag = document.createDocumentFragment()
 
@@ -20,8 +27,4 @@ f.setAttribute('duration', 2345 )
 frag.appendChild( f )
 
 document.body.insertBefore( frag, document.body.childNodes[ 0 ] )
-```
-or
-```javascript
-$('body').append('<u-flash warning duration="1234">POOP</u-flash>')
 ```
