@@ -16,7 +16,8 @@ document.body.insertBefore( f, document.body.childNodes[ 0 ] )
 ###### Full usage: ```<u-flash [ warning || error ] [ duration="5000"]>Message</u-flash>```
 
 ##### 3) (Optional) Hack it? (that's what I did!)
-in node: ```npm run dev```
+node: 
+```npm run dev```
 ```javascript
 import FlashClass from './components/Flash/flash'
 // Define 'er
@@ -37,6 +38,10 @@ class MyFlash extends FlashClass {
 if( ! MyFlash.isRegistered('i-flash') ){
 	window.Flash = document.registerElement('i-flash', MyFlash )
 }
+```
+browser:
+```http://localhost:8000```
+```javascript
 // Use 'er
 var f = document.createElement('i-flash')
 f.innerHTML = 'WEEE!'
