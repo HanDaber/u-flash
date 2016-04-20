@@ -2,7 +2,7 @@
 #### Custom element that shows a message and then removes itself after a duration.
 
 ### Example:
-##### 1) Include the JS (6KB gzipped):
+##### 1) Include the JS (6KB gzipped)
 like
 ```html 
 <script src="http://d359icslfg5ozq.cloudfront.net"></script>
@@ -15,12 +15,7 @@ s.src = 'http://d359icslfg5ozq.cloudfront.net'
 document.body.appendChild( s )
 ```
 
-##### 2) Use it, for example after an ajax call?
-with jQuery
-```html
-$('body').prepend('<u-flash duration="1000">Message!</u-flash>')
-```
-or vanilla
+##### 2) Use it
 ```javascript
 var f = document.createElement('u-flash')
 f.innerHTML = 'Click me and I go away!'
