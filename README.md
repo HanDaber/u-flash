@@ -13,7 +13,7 @@ var f = document.createElement('u-flash')
 f.innerHTML = 'Click me and I go away!'
 document.body.insertBefore( f, document.body.childNodes[ 0 ] )
 ```
-###### Full usage: <u-flash [ warning || error ] [ duration="5000"]>Message</u-flash>
+###### Full usage: ```<u-flash [ warning || error ] [ duration="5000"]>Message</u-flash>```
 
 ##### 3) (Optional) Hack it? (that's what I did!)
 in node: ```npm run dev```
