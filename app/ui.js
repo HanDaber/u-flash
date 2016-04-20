@@ -1,35 +1,18 @@
 import app from './app'
 import $ from 'jquery'
+import UI from './modules/ui'
+import getTemplate from './ui.jade'
 
-let MODULE = app,
-	getTime = () => {
-		let d = new Date()
-		return d//.getTime()
-	}
+let MODULE = app.things,
+	template = getTemplate({ name: 'things'})
 
-class UI extends $ {
-	constructor( module, renderFunction ){
-		super('<div />', { class: 'ui-container'})
+console.dir( template )
 
-		this.updated = false
-		
-		console.dir( this )
-
-		module.on('change', evt => {
-			this.updated = getTime()
-			if( evt.key == 'things') renderFunction( this, evt.new_val )
-		})
-	}
-}
-let $UI = new UI( MODULE, render )
-
-window.ui = $UI
-
-function render( container, data ){
-	let $container = container || $('<div />'),
+let renderFn = ( container, data ) => {
+	let $container = container.find('.ui-contents'),
 		_data = data || [],
 		$table = $('<table />', { id: 'results', class: 'table table-striped table-bordered'}),
-		headers = [ 'A', 'B', 'C' ]
+		headers = [ 'D', 'E', 'F' ]
 
 	let $table_header = $('<thead />')
 	let $header_row = $('<tr />')
@@ -42,7 +25,7 @@ function render( container, data ){
 	_data.forEach( row => {
 		let $this_row = $('<tr />')
 		headers.forEach( name => {
-			let value = row[ name ],
+			let value = row['butt'],
 				d_value = false
 
 			try { 
@@ -58,9 +41,7 @@ function render( container, data ){
 
 	let $table_footer = $('<tfoot />')
 	let $footer_row = $('<tr />')
-	// headers.forEach( name => {
-		$footer_row.append('<td colspan="'+headers.length+'"><div>'+$container.updated+'</div></td>')
-	// })
+	$footer_row.append('<td colspan="'+headers.length+'"><div>'+container.updated+'</div></td>')
 	$table_footer.append( $footer_row )
 
 	$table.html()
@@ -68,7 +49,11 @@ function render( container, data ){
 
 	$container.html( $table )
 
-	$( window ).trigger('render')
+	$( window ).trigger('render') // triggers script in index.html
 }
+
+
+
+let $UI = new UI( MODULE, renderFn, template )
 
 export default $UI

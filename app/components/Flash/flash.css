@@ -1,0 +1,31 @@
+x-flash *, x-flash *:before, x-flash *:after {
+	box-sizing: border-box;
+}
+
+x-flash {
+	display: block;
+	opacity: inherit;
+	font-size: inherit;
+	background-color: lime;
+	color: #000;
+	padding: 0.5em;
+}
+x-flash[warning] {
+	background-color: orange;
+}
+x-flash[error] {
+	background-color: red;
+}
+
+x-flash.enable {
+	-webkit-animation: flash 1.25s ease-out;
+	-moz-animation: flash 1.25s ease-out;
+	-ms-animation: flash 1.25s ease-out;
+	-o-animation: flash 1.25s ease-out;
+	animation: flash 1.25s ease-out;
+}
+@-webkit-keyframes flash { 100% { opacity: 0; } }
+@-moz-keyframes flash { 100% { opacity: 0; } }
+@-ms-keyframes flash { 100% { opacity: 0; } }
+@-o-keyframes flash { 100% { opacity: 0; } }
+@keyframes flash { 100% { opacity: 0; } }

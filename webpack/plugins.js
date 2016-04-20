@@ -21,7 +21,26 @@ if (DEBUG) {
     new ExtractTextPlugin(cssBundle, {
       allChunks: true
     }),
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: false,
+      compress: {
+        sequences: true,
+        dead_code: true,
+        conditionals: true,
+        booleans: true,
+        unused: true,
+        if_return: true,
+        join_vars: true,
+        drop_console: true
+      },
+      mangle: true,
+      // {
+      //   except: ['$super', 'jQuery', '$', 'exports', 'require']
+      // },
+      output: {
+        comments: false
+      } 
+    }),
     new webpack.optimize.DedupePlugin(),
     new webpack.DefinePlugin({
       'process.env': {
@@ -32,4 +51,11 @@ if (DEBUG) {
   );
 }
 
-module.exports = plugins;
+module.exports = function( app_hash ){
+    var add = new webpack.DefinePlugin({
+        'process.env.APP_HASH': '"'+app_hash+'"'
+    })
+    plugins.push( add )
+    return plugins
+}
+// module.exports = plugins;

@@ -2,6 +2,21 @@
 
 @import "base";
 
+.blink {
+	animation: blink-animation 1s steps(5, start) infinite;
+	-webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+@keyframes blink-animation {
+	to {
+		visibility: hidden;
+	}
+}
+@-webkit-keyframes blink-animation {
+	to {
+		visibility: hidden;
+	}
+}
+
 .thing { border: 1px solid red; background-color: transparentize( red, 0.9 ); }
 .object { border: 1px solid orange; background-color: transparentize( orange, 0.9 ); }
 .function { border: 1px solid yellow; background-color: transparentize( yellow, 0.9 ); }
@@ -9,27 +24,3 @@
 .string { border: 1px solid blue; background-color: transparentize( blue, 0.9 ); }
 .number { border: 1px solid purple; background-color: transparentize( purple, 0.9 ); }
 .boolean { border: 1px solid black; background-color: transparentize( black, 0.9 ); }
-
-.show-color { height: 0.2em; }
-.Part_Number { background-color: transparentize( orange, 0.3 ); }
-.Creation_Date { background-color: transparentize( orange, 0.3 ); }
-.Engineer { background-color: transparentize( orange, 0.3 ); }	
-.ERF_Demand { background-color: transparentize( green, 0.3 ); }
-.MRP_Demand { background-color: transparentize( green, 0.3 ); }
-.BOM_TimeStamp { background-color: transparentize( green, 0.3 ); }	
-.RevA_TimeStamp { background-color: transparentize( green, 0.3 ); }	
-.IR2000 { background-color: transparentize( blue, 0.3 ); }
-.Drawing_Loaded_TimeStamp { background-color: transparentize( green, 0.3 ); }	
-.Fair_Loaded_TimeStamp { background-color: transparentize( green, 0.3 ); }	
-.PreviousDash_FAIR { background-color: transparentize( blue, 0.3 ); }
-.PreviousDash_2000IR { background-color: transparentize( blue, 0.3 ); }
-.PreviousDash_Purchase_History { background-color: transparentize( blue, 0.3 ); }
-.Matgen_Class { background-color: transparentize( orange, 0.3 ); }	
-.Matgen_Category { background-color: transparentize( orange, 0.3 ); }
-.Matgen_Noun { background-color: transparentize( orange, 0.3 ); }	
-.Matgen_Modifier_1 { background-color: transparentize( orange, 0.3 ); }
-.Matgen_Modifier_2 { background-color: transparentize( orange, 0.3 ); }
-.Cleaning_Requirement { background-color: transparentize( orange, 0.3 ); }	
-.Critical_Classification { background-color: transparentize( yellow, 0.3 ); }
-.CE { background-color: transparentize( yellow, 0.3 ); }
-.pending { background-color: transparent !important; }

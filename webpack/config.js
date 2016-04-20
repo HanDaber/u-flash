@@ -2,9 +2,11 @@ var path = require('path');
 var util = require('util');
 var autoprefixer = require('autoprefixer-core');
 var pkg = require('../package.json');
+var uuid = require('uuid');
 
-var loaders = require('./loaders');
-var plugins = require('./plugins');
+var app_hash = uuid.v4()
+var loaders = require('./loaders')( app_hash );
+var plugins = require('./plugins')( app_hash );
 
 var DEBUG = process.env.NODE_ENV === 'development';
 var TEST = process.env.NODE_ENV === 'test';

@@ -6,21 +6,9 @@
 var express = require('express'), 
 	cors = require('cors'),
 	pjson = require('./package.json'),
-	AWS = require('aws-sdk'),
-	DOC = require("dynamodb-doc"),
-	request = require('request'),
-	fs = require('fs'),
 	__port = 8080,
 	print = function( x ){
 		return JSON.stringify( x, null, 4 )
-	},
-	readModuleFile = function( path, callback ){
-	    try {
-	        var filename = require.resolve( path );
-	        fs.readFile( filename, 'utf8', callback );
-	    } catch ( e ) {
-	        callback( e );
-	    }
 	}
 
 var app = express()
@@ -37,9 +25,7 @@ app.use('', ( req, res, next ) => { // To handle nginx routing config
 		console.log('redirecting '+req.url+' to '+redirect_to );
 
 		req.url = redirect_to
-		// return res.redirect( redirect_to )
 	}
-	// else 
 	next()
 })
 app.use(( req, res, next ) => {
@@ -57,25 +43,11 @@ app.get('/', ( req, res ) => {
 app.get('/test', ( req, res ) => {
 	res.send({
 		test: true,
-		test_quality: 'fine',
+		test_quality: 'fine great wonderful, thank you',
 		endpoint: 'server',
 		pid: process.pid
 	})
 })
-
-app.get('/projects', ( req, res ) => {
-	res.send({
-		id: req.params.id,
-		docs: []
-	})
-})
-app.get('/projects/:id', ( req, res ) => {
-	res.send({
-		id: req.params.id,
-		doc: {}
-	})
-})
-
 
 
 var server = app.listen( app.get('port'), () => {

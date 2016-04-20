@@ -1,11 +1,12 @@
 {
   "name": "base",
   "version": "1.0.0",
-  "description": "Always changing base app",
+  "description": "base dev app",
   "main": "index.js",
   "engine": "node >= 5.10.x",
   "config": {
     "buildDir": "./public",
+    "deployAssetUrl": "s3://base-dev.com",
     "devServerEndpoint": "http://localhost:8080/",
     "devBackendEndpoint": "http://localhost:3000/",
     "serverEndpoint": "http://localhost:8080/",
@@ -20,7 +21,6 @@
     "dataPort": 3000
   },
   "scripts": {
-    "cache-dpd": "wget -O $npm_package_config_buildDir/js/data.js http://$npm_package_config_dataHost:$npm_package_config_dataPort/dpd.js",
     "preinstall": "echo INSTALLING APP NOW READY GO SUPER POWERS START!\n\n\n",
     "build": "NODE_ENV=production webpack --colors --progress --config ./webpack/config",
     "clean": "rimraf $npm_package_config_buildDir && mkdir $npm_package_config_buildDir",
@@ -28,16 +28,9 @@
     "lint": "eslint --ext .js --ext .jsx ./app ./webpack && echo No linting errors.",
     "prebuild": "npm run clean",
     "prestart": "sudo npm install",
-    "pretest": "npm install && npm run lint",
-    "pretest-travis": "npm install && npm run lint",
     "start": "sudo NODE_ENV=production forever start server.js >> server.log",
     "dev": "NODE_ENV=development nodemon dev-server ./webpack/config",
-    "ssh-frontend": "ssh -i ../../aws/ec2/dh-west-2.pem ec2-user@wat",
-    "deploy": "npm run build && git status | grep modified; echo \"\n\"; git commit -am \"save\"; git push origin master && echo \"Deployed-ish. Go pull it behind the VPN\n\n\" ",
-    "notDeploy": "npm run build && aws s3 cp $npm_package_config_buildDir $npm_package_config_deployAssetUrl --recursive --acl public-read && echo \"\n\nPlease manually upload latest server and/or backend zips to AWS elastic beantsalk\t$BUILD_TIME\n\n\" ",
-    "test": "NODE_ENV=test karma start",
-    "test-travis": "NODE_ENV=test karma start --single-run",
-    "webpack": "webpack --colors --progress --config ./webpack/config"
+    "webpack": "webpack --colors --progress --config --display-modules --display-reasons ./webpack/config"
   },
   "dependencies": {
     "async": "^2.0.0-rc.3",
@@ -75,6 +68,7 @@
     "lusca": "^1.3.0",
     "method-override": "^2.3.5",
     "mixin": "^0.2.0",
+    "module": "0.0.1",
     "mongoose": "^4.4.12",
     "node-sass": "^3.4.2",
     "node-sass-middleware": "^0.9.8",
@@ -82,6 +76,7 @@
     "path": "^0.12.7",
     "pug": "^2.0.0-alpha3",
     "react": "^15.0.1",
+    "react-dom": "^15.0.1",
     "request": "^2.70.0",
     "superagent": "^1.8.3",
     "uuid": "^2.0.1"
@@ -91,12 +86,15 @@
   "devDependencies": {
     "autoprefixer-core": "^6.0.1",
     "babel-plugin-add-module-exports": "^0.1.2",
+    "babel-plugin-proxy": "^1.0.6",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-runtime": "^6.7.5",
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5.0",
     "babel-runtime": "^6.6.1",
     "chai": "^3.5.0",
     "css-loader": "^0.23.1",
+    "document-register-element": "^0.5.4",
     "eslint": "^2.7.0",
     "eslint-plugin-react": "^4.3.0",
     "extract-text-webpack-plugin": "^1.0.1",
@@ -104,7 +102,10 @@
     "glob": "^7.0.3",
     "html-loader": "^0.4.3",
     "ignore-loader": "^0.1.1",
+    "jade": "^1.11.0",
+    "jade-loader": "^0.8.0",
     "json-loader": "^0.5.4",
+    "jstransformer-babel": "^1.0.1",
     "mocha": "^2.4.5",
     "mocha-loader": "^0.7.1",
     "net": "^1.0.2",
