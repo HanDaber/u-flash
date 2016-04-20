@@ -8,7 +8,10 @@ class FlashClass extends BaseElement {
 	constructor(){ super() }
 
     attachedCallback(){
-        this._id = Math.floor( ( new Date() ).getTime()*3.14159 ) // for retreival
+        this._id = (() => {
+            let n = ( new Date() ).getTime()
+            return 2*n // for retreival
+        })()
 
     	this.render()
 
@@ -32,13 +35,23 @@ class FlashClass extends BaseElement {
     }
 
     fadeAndRemove(){
-        PrefixedEvent( this, 'AnimationEnd', evt => {
-            console.dir( evt.animationName )
-            let r = document.querySelector('[u-flash-id="'+this._id+'"]'),
-                p = r.parentElement
-            p.removeChild( r )
-        })
+        console.log('fadeAndRemove:')
+        console.dir( this )
         this.classList.add('enable')
+
+        let remove = ( id ) => {
+            let r = document.querySelector('[u-flash-id="'+id+'"]')
+            if( r ){
+                let p = r.parentElement
+                p.removeChild( r )
+            }
+        }
+
+        PrefixedEvent( this, 'AnimationEnd', evt => {
+            console.dir( evt )
+            console.dir( this )
+            remove( this._id )
+        })
     }
 
 	getTemplate( vars ){

@@ -18,14 +18,14 @@ u-flash[error] {
 }
 
 u-flash.enable {
-	-webkit-animation: flash 1.25s ease-out;
-	-moz-animation: flash 1.25s ease-out;
-	-ms-animation: flash 1.25s ease-out;
-	-o-animation: flash 1.25s ease-out;
-	animation: flash 1.25s ease-out;
+	-webkit-animation: flash 1s ease-out;
+	-moz-animation: flash 1s ease-out;
+	-ms-animation: flash 1s ease-out;
+	-o-animation: flash 1s ease-out;
+	animation: flash 1s ease-out;
 }
-@-webkit-keyframes flash { 100% { opacity: 0; } }
-@-moz-keyframes flash { 100% { opacity: 0; } }
-@-ms-keyframes flash { 100% { opacity: 0; } }
-@-o-keyframes flash { 100% { opacity: 0; } }
-@keyframes flash { 100% { opacity: 0; } }
+@-webkit-keyframes flash { 99% { opacity: 0; } }
+@-moz-keyframes flash { 99% { opacity: 0; } }
+@-ms-keyframes flash { 99% { opacity: 0; } }
+@-o-keyframes flash { 99% { opacity: 0; } }
+@keyframes flash { 99% { opacity: 0; } }
