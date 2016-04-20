@@ -3,19 +3,11 @@
 
 ### Example:
 ##### 1) Include the JS (6KB gzipped)
-like
 ```html 
 <script src="http://d359icslfg5ozq.cloudfront.net"></script>
 ```
-or
-```javascript
-var s = document.createElement('script')
-s.type = 'text/javascript'
-s.src = 'http://d359icslfg5ozq.cloudfront.net'
-document.body.appendChild( s )
-```
 
-##### 2) Use it
+##### 2) Use the Element
 ```javascript
 var f = document.createElement('u-flash')
 f.innerHTML = 'Click me and I go away!'
@@ -24,7 +16,7 @@ f.setAttribute('warning', true )
 document.body.insertBefore( f, document.body.childNodes[ 0 ] )
 ```
 
-##### 3) (Optional) Hack it? (That's what I did)
+##### 3) (Optional) Hack it? (that's what I did!)
 in node: ```npm run dev```
 ```javascript
 import FlashClass from './components/Flash/flash'
