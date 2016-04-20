@@ -24,3 +24,10 @@
 .string { border: 1px solid blue; background-color: transparentize( blue, 0.9 ); }
 .number { border: 1px solid purple; background-color: transparentize( purple, 0.9 ); }
 .boolean { border: 1px solid black; background-color: transparentize( black, 0.9 ); }
+
+pre {
+	display: block;
+	float: left;
+	margin: 2em;
+	max-width: 500px;
+}
