@@ -11,9 +11,7 @@ s.type = 'text/javascript'
 s.src = 'js/app.<%= version %>.js'
 b.appendChild( s )
 ```
-or
-```javascript
-```
+
 and then 
 ```html
 <u-flash [duration="1000"] [warning||error]>Message!</u-flash>
