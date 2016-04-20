@@ -28,7 +28,7 @@ import FlashClass from './components/Flash/flash'
 // Define 'er
 class MyFlash extends FlashClass {
     render( data ){
-		let tpl_vars = { body: '<h1>I\'m <em>special</e> <pre>'+this.innerHTML+'!!</pre></h1>' }
+		let tpl_vars = { body: '<h1>I\'m <em>special</em> <pre>'+this.innerHTML+'!!</pre></h1>' }
 
 		this.template = this.buildTemplate( tpl_vars )
 
