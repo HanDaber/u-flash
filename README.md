@@ -1,4 +1,4 @@
-# u-flash Experiment [demo](http://s3-us-west-1.amazonaws.com/base-dev.com/flash/index.html)
+# \<u-flash\> Experiment [demo](http://s3-us-west-1.amazonaws.com/base-dev.com/flash/index.html)
 #### Custom element that shows a message and then removes itself after a duration.
 
 ### Usage:
